@@ -1,20 +1,28 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { NgModule }                   from '@angular/core';
+import { BrowserAnimationsModule }    from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
+import { AppComponent }               from './app.component';
+import { AppRoutingModule }           from './app-routing.module';
+import { CoreModule }                 from '../modules/core.module';
+
+import { Bad404Component }            from './404/404.component';
+import { Lp30BaseModule }             from './lp30/lp-30.module';
+import { APP_CONFIG, BASSET_CONFIG }  from '../config/app.config';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Bad404Component
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
+    CoreModule.forRoot(),
+    AppRoutingModule,
+    Lp30BaseModule,
   ],
-  providers: [],
+  providers: [
+    { provide: APP_CONFIG, useValue: BASSET_CONFIG }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

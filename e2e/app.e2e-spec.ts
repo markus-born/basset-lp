@@ -1,14 +1,14 @@
-import { BassetLpPage } from './app.po';
+import { NewSourcePage } from './app.po';
 
-describe('basset-lp App', () => {
-  let page: BassetLpPage;
+describe('new-source App', () => {
+  let page: NewSourcePage;
 
   beforeEach(() => {
-    page = new BassetLpPage();
+    page = new NewSourcePage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
 });
