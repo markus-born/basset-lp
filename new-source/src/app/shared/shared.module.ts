@@ -9,10 +9,11 @@ import { BrowserAnimationsModule }            from '@angular/platform-browser/an
 import { BassetHeaderComponent }              from '../components/header/header.component';
 import { BgFooterComponent }                  from '../components/footer/footer.component';
 import { YellowBtnComponent }                 from '../components/yellow-btn/yellow-btn.component';
-import { BlockHalfBulletsComponent }          from '../components/block-half-bullets/block-half-bullets.component';
+
 import { BlockTestimonialComponent }          from '../components/block-testimonial/block-testimonial.component';
 import { BlockCenteredTextComponent }         from '../components/block-centered-text/block-centered-text.component';
-import { BlockCenteredBulletsComponent }      from '../components/block-centered-bullets/block-centered-bullets.component';
+
+import { BlockBulletsComponent }          from '../components/block-bullets/block-bullets.component';
 
 import { TelephonifyPipe }         from './telephonify.pipe';
 
@@ -20,10 +21,9 @@ const importExportDeclarationArray = [
   BgFooterComponent,
   BassetHeaderComponent,
   YellowBtnComponent,
-  BlockHalfBulletsComponent,
   BlockTestimonialComponent,
   BlockCenteredTextComponent,
-  BlockCenteredBulletsComponent
+  BlockBulletsComponent
 ];
 
 @NgModule({

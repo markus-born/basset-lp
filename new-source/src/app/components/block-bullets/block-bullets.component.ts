@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'block-half-bullets',
+  selector: 'block-bullets',
   template: `
   	<div class="container max1024">
 
 	    <div class="flex">
 
 	        <div class="col-sm-12 col-md-7 col-lg-7 text-box">
-	            <h1>Invest With Confidence</h1>
-	            <h2>Our unique fixed-income pensioner bonds give you the comfort of knowing your money is always working hard for you, earning regular interest.</h2>
+	            <h1>{{ title }}</h1>
+	            <h2 *ngIf="brief">{{ brief }}</h2>
 	            <ul>
-	                <li>Get returns of up to 4.32% per annum.</li>
-	                <li>100% record on full repayments, with interest!</li>
-	                <li>Easy, online application. No fees, no fuss.</li>
-	                <li>One-year bonds, extendable up to five years </li>
+	            	<li *ngFor="let element of description">
+	            		<h3 *ngIf="element.title">{{ element.title }}</h3>
+	            		{{ element.content }}
+	            	</li>
 	            </ul>
-	            <div class="row action-btn" [ngStyle]="{visibility:'hidden'}">
+	            <div class="row action-btn" [hidden]="!showMore">
 	                <basset-yellow-btn [title]="'Find out more'"></basset-yellow-btn>
 	            </div>
 
@@ -59,17 +59,32 @@ import { Component, OnInit } from '@angular/core';
 	    margin: 25px;
 	    flex-grow: 1;
 	}
+	ul li {
+	    margin-top: 10px;
+	}
 	.action-btn {
+	    margin-top:30px;
 	    display: flex;
 	    justify-content: center;
 	    margin-bottom: 15px;
 	}
+
+	h3 {
+	    margin:0;
+	}
+	[hidden] {
+		visibility: hidden;
+	}
   ` ]
 })
-export class BlockHalfBulletsComponent implements OnInit {
+export class BlockBulletsComponent implements OnInit {
+	@Input('title') title: string;
+	@Input('brief') brief: string;
+	@Input('type') type: string;
+	@Input('showMore') showMore: boolean;
+	@Input('description') description: Array<{title: string, content: string}>;
+	constructor() { }
 
-  constructor() { }
-
-  ngOnInit() { }
+	ngOnInit() { }
 
 }
