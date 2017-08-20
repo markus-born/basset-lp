@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'selector',
-    templateUrl: './404.component.html',
-    styleUrls: [ './404.component.css' ]
+    template: `<div>404</div>`,
+    styles: [ `
+    ` ]
 })
 export class Bad404Component implements OnInit {
     constructor() { }

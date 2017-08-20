@@ -1,8 +1,8 @@
 import { NgModule }               from '@angular/core';
 import { Routes, RouterModule }   from '@angular/router';
 
-import { LP30BaseComponent }      from './lp30/lp-30-base.component';
-import { Bad404Component }        from './404/404.component';
+import { LP30BaseComponent }      from './pages/lp30/lp-30-base.component';
+import { Bad404Component }        from './pages/404/404.component';
 
 export const routes: Routes = [
 

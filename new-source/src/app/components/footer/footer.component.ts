@@ -2,8 +2,62 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'bg-footer',
-    templateUrl: './footer.component.html',
-    styleUrls: [ './footer.component.css' ]
+    template: `
+        <div class="basset-footer">
+            <div class="container max1024">
+                <div class="ui-g risk-box">
+                    <div class="risk-warning col-md-9">
+                        <h2>{{ riskTitle }}</h2>
+                        <p> {{ riskContent }}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="footer-wide">
+                    <p>{{ footerTxt1 }}</p>
+                    <p>{{ footerTxt2 }}</p>
+                    <p>{{ copyright }}</p>
+                </div>
+            </div>
+        </div>
+    `,
+    styles: [ `
+        .basset-footer {
+            margin:50px 0;
+        }
+        :host {
+            color: #707070;
+        }
+        .risk-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .risk-warning {
+            font-size: 0.8em;
+            border: 1px solid #000;
+            margin-bottom: 20px;
+            padding: 10px 30px;
+        }
+        .risk-warning h2 {
+            font-weight: 100;
+            margin: 0;
+            font-size: 1.5em;
+            font-family: PT Sans Narrow,sans-serif;
+        }
+        .risk-box p {
+            margin: 0;
+        }
+
+        .footer-wide p {
+            font-family: PT Sans,sans-serif;
+            font-size: 0.8em;
+            text-align: center;
+            margin-top:20px;
+        }
+    ` ]
 })
 export class BgFooterComponent implements OnInit {
     riskTitle = 'Risk Warning';

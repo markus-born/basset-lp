@@ -1,8 +1,8 @@
 import { Injectable, Inject }       from '@angular/core';
 import { Http }                     from "@angular/http";
 
-import { APP_CONFIG }               from '../../../config/app.config';
-import { AppConfig }                from '../../../interfaces/app.interface';
+import { APP_CONFIG }               from '../../config/app.config';
+import { AppConfig }                from '../../interfaces/app.interface';
 
 @Injectable()
 export class InfoFormService {

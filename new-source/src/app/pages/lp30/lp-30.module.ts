@@ -1,8 +1,8 @@
 import { NgModule }             from '@angular/core';
 
 import { LP30BaseComponent }    from './lp-30-base.component';
-import { BassetSharedModule }   from '../../modules/shared.module';
-import { InfoFormModule }       from '../components/infoForm/info-form.module';
+import { BassetSharedModule }   from '../../shared/shared.module';
+import { InfoFormModule }       from '../../components/infoForm/info-form.module';
 
 @NgModule({
     imports: [

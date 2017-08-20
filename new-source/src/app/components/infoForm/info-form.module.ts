@@ -2,7 +2,7 @@ import { NgModule }             from '@angular/core';
 import { NouisliderModule }     from 'ng2-nouislider';
 import { CheckboxModule }       from 'primeng/components/checkbox/checkbox';
 
-import { BassetSharedModule }   from '../../../modules/shared.module';
+import { BassetSharedModule }   from '../../shared/shared.module';
 import { InfoFormComponent }    from './info-form.component';
 import { InfoFormService }      from './info-form.service';
 import { InfoFormBl}            from './info-form.bl';

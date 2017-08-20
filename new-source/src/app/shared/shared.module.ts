@@ -6,13 +6,13 @@ import {
   ReactiveFormsModule}                        from '@angular/forms';
 import { BrowserAnimationsModule }            from '@angular/platform-browser/animations';
 
-import { BassetHeaderComponent }              from '../app/components/header/header.component';
-import { BgFooterComponent }                  from '../app/components/footer/footer.component';
-import { YellowBtnComponent }                 from '../app/components/yellow-btn/yellow-btn.component';
-import { BlockHalfBulletsComponent }          from '../app/components/block-half-bullets/block-half-bullets.component';
-import { BlockTestimonialComponent }          from '../app/components/block-testimonial/block-testimonial.component';
-import { BlockCenteredTextComponent }         from '../app/components/block-centered-text/block-centered-text.component';
-import { BlockCenteredBulletsComponent }      from '../app/components/block-centered-bullets/block-centered-bullets.component';
+import { BassetHeaderComponent }              from '../components/header/header.component';
+import { BgFooterComponent }                  from '../components/footer/footer.component';
+import { YellowBtnComponent }                 from '../components/yellow-btn/yellow-btn.component';
+import { BlockHalfBulletsComponent }          from '../components/block-half-bullets/block-half-bullets.component';
+import { BlockTestimonialComponent }          from '../components/block-testimonial/block-testimonial.component';
+import { BlockCenteredTextComponent }         from '../components/block-centered-text/block-centered-text.component';
+import { BlockCenteredBulletsComponent }      from '../components/block-centered-bullets/block-centered-bullets.component';
 
 const importExportDeclarationArray = [
   BgFooterComponent,

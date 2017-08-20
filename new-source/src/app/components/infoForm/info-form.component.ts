@@ -14,8 +14,164 @@ import { InfoFormBl }         from './info-form.bl';
 
 @Component({
     selector: 'info-form',
-    templateUrl: './info-form.component.html',
-    styleUrls: [ './info-form.component.css' ]
+    template: `
+      <div class="info-form">
+        <form [formGroup]="form" novalidate>
+            <h2 class="text-center">{{formTitle}}</h2>
+            <hr>
+            <p class="slider-text text-center">{{ sliderText }}</p>
+            <nouislider
+                    class="form-slider"
+                    [keyboard]="true"
+                    [step]="1000"
+                    (update)="onUpdate($event)"
+                    [behaviour]="'tap'"
+                    [connect]="true"
+                    [min]="MinAmount"
+                    [max]="MaxAmount"
+                    [formControl]="form.controls.amount"
+            ></nouislider>
+            <div class="row">
+                <div class="col-xs-4 text-left">
+                    <span class="value value-min">{{ MinAmount | currency:'GBP':true:'1.0'}}</span>
+                </div>
+                <div class="text-center col-xs-4">
+                    <span class="value value-current">{{ CurrentAmount | currency:'GBP':true:'1.0-0' }}</span>
+                </div>
+                <div class="text-right col-xs-4">
+                    <span class="value value-max">{{ MaxAmount | currency:'GBP':true:'1.0'}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="form-control" placeholder="First Name" formControlName="first">
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="form-control" placeholder="Last Name" formControlName="last">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="Phone" formControlName="phone">
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="Email" formControlName="email">
+            </div>
+
+            <div class="checkbox">
+                <p-checkbox binary="true" class="checkbox-mark" [formControlName]="'terms'"></p-checkbox>
+                <span [innerHTML]="terms"></span>
+            </div>
+            <div class="submit">
+                <button (click)="onSubmit()" type="button" class="submit-text">{{ submitText }}</button>
+            </div>
+          </form>
+      </div>
+    `,
+    styles: [ `
+      :host {
+          color:#adadad;
+          background: white;
+      }
+      .checkbox {
+          display: flex;
+          margin: 20px 0;
+          font-size: 0.9em;
+      }
+      .checkbox-mark {
+          margin-right: 10px;
+          background-color: none;
+      }
+
+      .form-slider {
+          margin: 10px;
+      }
+      input::-webkit-input-placeholder {
+          color:#d8d8d8;
+      }
+      input{
+          padding: 10px 20px;
+          border-radius: 8px;
+          border: 1px solid #d8d8d8;
+          font-size: 1.1em;
+          font-family: PT Sans Narrow,sans-serif;
+          font-weight: 100;
+          /*margin-right: 10px;*/
+          flex-grow: 10;
+          margin-top:15px;
+      }
+
+      h2 {
+          color:#002e5b;
+          font-size: 1.3em;
+          line-height:1.4em;
+          padding:0;
+          text-transform: uppercase;
+          margin:0;
+          font-weight: 700;
+      }
+
+      :host >>> .noUi-base {
+          background:#fde428;
+      }
+
+      .info-form {
+          font-size: 14px;
+          background: #fff;
+          padding: 10px;
+          border-radius: 10px;
+          min-height: 490px;
+          margin-top: 30px;
+          border: 1px solid #d3d3d3;
+      }
+      .value {
+          color: #adadad;
+          padding:0;
+      }
+      .value-current {
+          color: #002e5b;
+          border: 2px solid #fde428;
+          padding: 1px 15px;
+          border-radius: 5px;
+          font-weight: 700;
+          /*font-family: "PT Sans Narrow",sans-serif;*/
+      }
+      .slider-text {
+          font-weight: 400;
+          color: #adadad;
+          font-size: 1.1em;
+      }
+
+      .submit {
+          display: flex;
+      }
+      .submit-text {
+          text-transform: uppercase;
+          color: #002e5b;
+          font-size: 1.5em;
+          background: #fde428;
+          border-radius: 8px;
+          font-family: PT Sans Narrow,sans-serif;
+          font-weight: bold;
+          border: 0;
+          padding: 12px 10px;
+          flex-grow: 10;
+          cursor: pointer;
+
+      }
+      @media screen and (min-width: 1200px) {
+
+          .info-form {
+              width:300px;
+              margin-top: 0;
+              margin-left: auto;
+          }
+
+      }
+    ` ]
 })
 export class InfoFormComponent implements OnInit {
 
