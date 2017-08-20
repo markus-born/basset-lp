@@ -10,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 		        </div>
 		        <div class="col-xs-6 col-sm-6 col-sm-offset-3 col-lg-10 col-lg-offset-0 text-right">
 		            <div class="header-call">{{ ctaText }}
-		                <a class="no-wrap" href="tel:08002494555">0800 249 4555</a>
+		                <a class="no-wrap" [href]="phoneNumber | telephonify">{{ phoneNumber }}</a>
 		            </div>
 		        </div>
 
@@ -66,6 +66,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BassetHeaderComponent implements OnInit {
     @Input('CTAText') ctaText:string = 'HI';
+    @Input('PhoneNumber') phoneNumber:string = '111 1111 1111';
 
     constructor() { }
 

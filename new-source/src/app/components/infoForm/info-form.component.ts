@@ -15,66 +15,85 @@ import { InfoFormBl }         from './info-form.bl';
 @Component({
     selector: 'info-form',
     template: `
-      <div class="info-form">
-        <form [formGroup]="form" novalidate>
-            <h2 class="text-center">{{formTitle}}</h2>
-            <hr>
-            <p class="slider-text text-center">{{ sliderText }}</p>
-            <nouislider
-                    class="form-slider"
-                    [keyboard]="true"
-                    [step]="1000"
-                    (update)="onUpdate($event)"
-                    [behaviour]="'tap'"
-                    [connect]="true"
-                    [min]="MinAmount"
-                    [max]="MaxAmount"
-                    [formControl]="form.controls.amount"
-            ></nouislider>
-            <div class="row">
-                <div class="col-xs-4 text-left">
-                    <span class="value value-min">{{ MinAmount | currency:'GBP':true:'1.0'}}</span>
-                </div>
-                <div class="text-center col-xs-4">
-                    <span class="value value-current">{{ CurrentAmount | currency:'GBP':true:'1.0-0' }}</span>
-                </div>
-                <div class="text-right col-xs-4">
-                    <span class="value value-max">{{ MaxAmount | currency:'GBP':true:'1.0'}}</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <input class="form-control" placeholder="First Name" formControlName="first">
+      <div class="sticky-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-lg-5 col-lg-offset-7">
+              <div class="info-form">
+                <form [formGroup]="form" novalidate>
+                    <h2 class="text-center">{{formTitle}}</h2>
+                    <hr>
+                    <p class="slider-text text-center">{{ sliderText }}</p>
+                    <nouislider
+                            class="form-slider"
+                            [keyboard]="true"
+                            [step]="1000"
+                            (update)="onUpdate($event)"
+                            [behaviour]="'tap'"
+                            [connect]="true"
+                            [min]="MinAmount"
+                            [max]="MaxAmount"
+                            [formControl]="form.controls.amount"
+                    ></nouislider>
+                    <div class="row">
+                        <div class="col-xs-4 text-left">
+                            <span class="value value-min">{{ MinAmount | currency:'GBP':true:'1.0'}}</span>
+                        </div>
+                        <div class="text-center col-xs-4">
+                            <span class="value value-current">{{ CurrentAmount | currency:'GBP':true:'1.0-0' }}</span>
+                        </div>
+                        <div class="text-right col-xs-4">
+                            <span class="value value-max">{{ MaxAmount | currency:'GBP':true:'1.0'}}</span>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input class="form-control" placeholder="Last Name" formControlName="last">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input class="form-control" placeholder="First Name" formControlName="first">
+                            </div>
+                            <div class="col-sm-6">
+                                <input class="form-control" placeholder="Last Name" formControlName="last">
+                            </div>
+                        </div>
+
+
                     </div>
-                </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Phone" formControlName="phone">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Email" formControlName="email">
+                    </div>
 
-
+                    <div class="checkbox">
+                        <p-checkbox binary="true" class="checkbox-mark" [formControlName]="'terms'"></p-checkbox>
+                        <span [innerHTML]="terms"></span>
+                    </div>
+                    <div class="submit">
+                        <button (click)="onSubmit()" type="button" class="submit-text">{{ submitText }}</button>
+                    </div>
+                  </form>
+              </div>
             </div>
-            <div class="form-group">
-                <input class="form-control" placeholder="Phone" formControlName="phone">
-            </div>
-            <div class="form-group">
-                <input class="form-control" placeholder="Email" formControlName="email">
-            </div>
-
-            <div class="checkbox">
-                <p-checkbox binary="true" class="checkbox-mark" [formControlName]="'terms'"></p-checkbox>
-                <span [innerHTML]="terms"></span>
-            </div>
-            <div class="submit">
-                <button (click)="onSubmit()" type="button" class="submit-text">{{ submitText }}</button>
-            </div>
-          </form>
+          </div>
+        </div>
       </div>
     `,
     styles: [ `
       :host {
           color:#adadad;
           background: white;
+      }
+      @media screen and (min-width: 1200px) {
+
+        :host {
+            position: absolute;
+            top: 110px;
+            z-index: 1;
+            width: 100%;
+            height:0;
+            /*pointer-events: none;*/
+        }
       }
       .checkbox {
           display: flex;

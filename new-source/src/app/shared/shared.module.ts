@@ -14,6 +14,8 @@ import { BlockTestimonialComponent }          from '../components/block-testimon
 import { BlockCenteredTextComponent }         from '../components/block-centered-text/block-centered-text.component';
 import { BlockCenteredBulletsComponent }      from '../components/block-centered-bullets/block-centered-bullets.component';
 
+import { TelephonifyPipe }         from './telephonify.pipe';
+
 const importExportDeclarationArray = [
   BgFooterComponent,
   BassetHeaderComponent,
@@ -30,8 +32,12 @@ const importExportDeclarationArray = [
     // ViewportModule,
     BrowserAnimationsModule
   ],
-  declarations: importExportDeclarationArray,
+  declarations: [ 
+    ...importExportDeclarationArray,
+    TelephonifyPipe
+  ],
   exports:      [ ...importExportDeclarationArray,
+    TelephonifyPipe,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -40,8 +46,6 @@ const importExportDeclarationArray = [
   ]
 })
 export class BassetSharedModule {
-
-
 
 }
 

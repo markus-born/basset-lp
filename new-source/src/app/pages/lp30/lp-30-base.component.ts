@@ -1,28 +1,18 @@
+import { Inject } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
+import { APP_CONFIG } from '../../config/app.config';
+import { AppConfig } from '../../interfaces/app.interface';
 @Component({
     selector: 'lp30',
     template: `
-    	<bg-header [CTAText]="'PREFER TO CALL?'"></bg-header>
+    	<bg-header [CTAText]="'PREFER TO CALL?'" [PhoneNumber]="config.phoneNumber"></bg-header>
 
-		<div class="sticky-container">
-
-		    <div class="container">
-		        <div class="row">
-		            <div class="col-md-12 col-lg-5 col-lg-offset-7">
-
-		                <info-form
-		                        [formTitle]="formTitle"
-		                        [sliderText]="sliderText"
-		                        [submitText]="submitText"
-		                ></info-form>
-
-		            </div>
-		        </div>
-
-		    </div>
-
-		</div>
+		<info-form
+            [formTitle]="formTitle"
+            [sliderText]="sliderText"
+            [submitText]="submitText"
+        ></info-form>
 
 		<block-half-bullets></block-half-bullets>
 
@@ -71,6 +61,10 @@ export class LP30BaseComponent implements OnInit {
     formTitle =  'get your free information pack now';
     sliderText = 'Choose your Investment Amount';
     submitText = 'get my free info pack';
+
+    constructor(@Inject(APP_CONFIG) private config: AppConfig) {
+
+    }
 
     ngOnInit() { }
 
