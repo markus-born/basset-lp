@@ -35,12 +35,13 @@ export class InfoFormBl {
   createForm() {
 
     const phoneField = new FormControl('',[ Validators.required ])
+    const emailField = new FormControl('',[ Validators.required ])
 
     this.form = this.formBuilder.group({
       'amount': [ this.minAmount ],
       'first':['', Validators.required ],
       'last':['' , Validators.required ],
-      'email':['', Validators.required ],
+      'email': emailField,
       'phone': phoneField,
       'terms':['', Validators.required ]
 
@@ -57,7 +58,7 @@ export class InfoFormBl {
         // return cleanPhone.length >= 1
         return val.length >= 1;
       })
-      .debounceTime(500)
+      .debounceTime(100)
       .switchMap(val => this.formService.validatePhone(val))
       .subscribe(res => {
 
@@ -68,6 +69,29 @@ export class InfoFormBl {
           phoneField.setErrors(null);
         } else {
           phoneField.setErrors({ validPhone: true });
+        }
+
+        this.onValueChanged();
+
+      });
+
+    emailField.valueChanges
+      .filter(val => {
+        // let cleanPhone = val.replace(/[^0-9]/g,'');
+        // return cleanPhone.length >= 1
+        return val.length >= 1;
+      })
+      .debounceTime(100)
+      .switchMap(val => this.formService.validateEmail(val))
+      .subscribe(res => {
+
+        console.log(res)
+        let validation = res.json();
+
+        if (validation['valid']) {
+          emailField.setErrors(null);
+        } else {
+          emailField.setErrors({ validEmail: true });
         }
 
         this.onValueChanged();
@@ -119,15 +143,15 @@ export class InfoFormBl {
       'required': 'Last name is required.'
     },
     'email': {
-      'required': 'email is required.',
+      'required': 'Email is required.',
       'validEmail': 'Email address is invalid'
     },
     'phone': {
-      'required'  : 'phone is required.',
+      'required'  : 'Phone is required.',
       'validPhone': 'Phone number is invalid'
     },
     'terms': {
-      'required': 'terms is required.'
+      'required': 'Terms is required.'
     }
   };
 
