@@ -1,4 +1,4 @@
-import {
+﻿import {
     Component,
     OnInit,
     Input}                    from '@angular/core';
@@ -52,15 +52,14 @@ import { InfoFormBl }         from './info-form.bl';
                                 <input class="form-control" placeholder="Last Name" formControlName="last">
                             </div>
                         </div>
-                        <div class="row" *ngIf="formErrors['first'] || formErrors['last']">
-                          <div class="alert alert-danger" *ngIf="formErrors['first']">
+                          <div class="form-group" *ngIf="formErrors['first'] || formErrors['last']">
+                         <div class="alert alert-danger" *ngIf="formErrors['first']">
                             {{ formErrors['first'] }}
                           </div>
                           <div class="alert alert-danger" *ngIf="!formErrors['first'] && formErrors['last']">
                             {{ formErrors['last'] }}
-                          </div>
-                        </div>
-
+                          </div>                        
+                     </div>
 
                     </div>
                     <div class="form-group">
@@ -76,12 +75,13 @@ import { InfoFormBl }         from './info-form.bl';
                         </div>
                     </div>
 
-                    <div class="checkbox">
-                        <p-checkbox binary="true" class="checkbox-mark" [formControlName]="'terms'"></p-checkbox>
+                    <div class="form-group">
+                         <p-checkbox binary="true" class="checkbox-mark" [formControlName]="'terms'"></p-checkbox>
                         <span [innerHTML]="terms"></span>
-                        <div class="alert alert-danger" *ngIf="formErrors['terms']">
+                       <div class="alert alert-danger" *ngIf="formErrors['terms']">
                             {{ formErrors['terms'] }}
                         </div>
+
                     </div>
                     <div class="submit">
                         <button type="submit" class="submit-text">{{ submitText }}</button>
@@ -97,6 +97,10 @@ import { InfoFormBl }         from './info-form.bl';
       :host {
           color:#adadad;
           background: white;
+      }
+
+      .alert-danger {
+      margin-top:5px;
       }
       @media screen and (min-width: 451px) {
 
