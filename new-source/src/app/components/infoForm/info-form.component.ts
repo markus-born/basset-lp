@@ -12,7 +12,7 @@ import { InfoFormBl }         from './info-form.bl';
 @Component({
     selector: 'info-form',
     template: `
-      <div class="sticky-container">
+      <div class="sticky-container container">
         <div class="pull-right">
           <div class="row">
             <div class="col-sm-5 col-lg-5 hidden-xs">
@@ -111,9 +111,6 @@ import { InfoFormBl }         from './info-form.bl';
             width: 100%;
             height:0;
             /*pointer-events: none;*/
-        }
-        .sticky-container > div {
-            margin-right: 25px;
         }
       }
       .checkbox {

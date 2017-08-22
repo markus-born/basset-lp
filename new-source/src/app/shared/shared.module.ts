@@ -4,7 +4,7 @@ import { CommonModule }                       from '@angular/common';
 import {
   FormsModule,
   ReactiveFormsModule}                        from '@angular/forms';
-import { BrowserAnimationsModule }            from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule }            from '@angular/platform-browser/animations';
 
 import { ModalModule }                        from 'ngx-modal';
 
@@ -35,7 +35,7 @@ const importExportDeclarationArray = [
   imports:      [
     CommonModule,
     // ViewportModule,
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     ModalModule
   ],
   declarations: [ 
@@ -50,7 +50,7 @@ const importExportDeclarationArray = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    //BrowserAnimationsModule
 
   ]
 })
