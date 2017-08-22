@@ -45,10 +45,10 @@ import { InfoFormBl }         from './info-form.bl';
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 input-2">
                                 <input class="form-control" placeholder="First Name" formControlName="first">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 input-2">
                                 <input class="form-control" placeholder="Last Name" formControlName="last">
                             </div>
                         </div>
@@ -75,7 +75,7 @@ import { InfoFormBl }         from './info-form.bl';
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group form-checkbox">
                          <p-checkbox binary="true" class="checkbox-mark" [formControlName]="'terms'"></p-checkbox>
                         <span [innerHTML]="terms"></span>
                        <div class="alert alert-danger" *ngIf="formErrors['terms']">
@@ -121,25 +121,30 @@ import { InfoFormBl }         from './info-form.bl';
           margin: 20px 0;
           font-size: 0.9em;
       }
-      .checkbox-mark {
-          margin-right: 10px;
+      .form-checkbox {
+          -webkit-align-items: center;
+          display: -webkit-inline-flex;
+          align-items: center;
+          display: inline-flex;
+      }
+      .form-checkbox .checkbox-mark {
+          margin: 0 5px;
           background-color: none;
       }
-
-      .form-slider {
-          margin: 10px;
+      .form-checkbox .checkbox-mark + span {
+          font-size: 0.8em;
+          line-height: 1.2em;
       }
       input::-webkit-input-placeholder {
           color:#d8d8d8;
       }
       input{
-          padding: 10px 20px;
+          padding: 10px 25px;
           border-radius: 8px;
           border: 1px solid #d8d8d8;
-          font-size: 1.1em;
-          font-family: PT Sans Narrow,sans-serif;
+          font-size: 1em;
+          font-family: PT Sans,sans-serif;
           font-weight: 100;
-          /*margin-right: 10px;*/
           flex-grow: 10;
           margin-top:15px;
       }
@@ -147,15 +152,63 @@ import { InfoFormBl }         from './info-form.bl';
       h2 {
           color:#002e5b;
           font-size: 1.3em;
-          line-height:1.4em;
+          line-height: 1.2em;
           padding:0;
           text-transform: uppercase;
           margin:0;
           font-weight: 700;
+          font-family: PT Sans,sans-serif;
       }
 
-      :host >>> .noUi-base {
-          background:#fde428;
+      hr {
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      :host >>> nouislider.form-slider {
+        margin: 17px 0 12px;
+      }
+
+      :host >>> nouislider .noUi-target {
+        height: 10px;  
+        border-radius: 6px;
+        border: 0;
+        padding-right: 40px;
+        background-color: #fde428;
+        box-shadow: none;
+      }
+
+      :host >>> nouislider .noUi-target .noUi-base {
+        border-radius: 6px;
+      }
+
+      :host >>> nouislider .noUi-target.noUi-horizontal .noUi-handle {
+        width: 40px;
+        height: 24px;
+        left: 0;
+        top: -6px;
+        border-radius: 7px;
+        box-shadow: 0px 0px 7px 1px #aaa;
+      }
+
+      :host >>> nouislider .noUi-target.noUi-horizontal .noUi-handle:after, 
+      :host >>> nouislider .noUi-target.noUi-horizontal .noUi-handle:before {
+        top: 1px;
+        font-family: FontAwesome;  
+        height: auto;
+        left: auto;
+        background-color: transparent;
+        width: auto;
+      }
+
+      :host >>> nouislider .noUi-target.noUi-horizontal .noUi-handle:before {
+        content: "\\f0d9";
+        left: 3px;
+      }
+
+      :host >>> nouislider .noUi-target.noUi-horizontal .noUi-handle:after {
+        content: "\\f0da";
+        right: 3px;
       }
 
       .info-form {
@@ -163,26 +216,27 @@ import { InfoFormBl }         from './info-form.bl';
           background: #fff;
           padding: 10px;
           border-radius: 10px;
-          min-height: 490px;
           margin-top: 30px;
           border: 1px solid #d3d3d3;
       }
       .value {
           color: #adadad;
           padding:0;
+          font-size: 0.9em;
       }
       .value-current {
           color: #002e5b;
           border: 2px solid #fde428;
-          padding: 1px 15px;
           border-radius: 5px;
           font-weight: 700;
-          /*font-family: "PT Sans Narrow",sans-serif;*/
+          padding: 0px 8px;
+          font-size: 0.9em;
       }
       .slider-text {
           font-weight: 400;
           color: #adadad;
-          font-size: 1.1em;
+          font-size: 0.9em;
+          letter-spacing: 0.03em;
       }
 
       .submit {
@@ -194,18 +248,25 @@ import { InfoFormBl }         from './info-form.bl';
           font-size: 1.5em;
           background: #fde428;
           border-radius: 8px;
-          font-family: PT Sans Narrow,sans-serif;
+          font-family: PT Sans,sans-serif;
           font-weight: bold;
           border: 0;
-          padding: 12px 10px;
+          padding: 12px 10px 8px;
           flex-grow: 10;
           cursor: pointer;
 
       }
+      .row > .input-2:first-child {
+        padding-right: 7px;
+      }
+      .row > .input-2:nth-child(2) {
+        padding-left: 7px;
+      }
+
       @media screen and (min-width: 451px) {
 
           .info-form {
-              width:300px;
+              width:270px;
               margin-top: 0;
               margin-left: auto;
           }

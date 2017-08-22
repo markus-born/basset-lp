@@ -3,76 +3,74 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
     selector: 'bg-header',
     template: `
-    	<div class="header">
-		    <div class="header-container">
-		        <div class="logo col-xs-4">
-		        	<a href="#">
-		            <img src="assets/logo-negative.png" class="img-responsive">
-		            </a>
-		        </div>
-		        <div class="phone-number col-xs-8 text-right">
-		            <div class="header-call">{{ ctaText }}
-		                <a class="no-wrap" [href]="phoneNumber | telephonify">{{ phoneNumber }}</a>
-		            </div>
-		        </div>
-
-		    </div>
-		</div>
+    	<nav class="header">
+        <div class="logo">
+        	<a href="#">
+            <img src="assets/logo-negative.png" class="img-responsive">
+          </a>
+        </div>
+        <div class="header-call">
+        	{{ ctaText }}<br class="visible-xs">
+          <a class="no-wrap" [href]="phoneNumber | telephonify">{{ phoneNumber }}</a>
+        </div>
+			</nav>
     `,
     styles: [ `
     	.header {
 		    color: #fff;
 		    background: #1f384d;
-		    height: auto;
-		    overflow: hidden;
-		    /*padding: 10px;*/
-		    font-size: 1.7em;
 		    font-family: PT Sans Narrow,sans-serif;
+		    padding: 16px 10px;
+		    display: -webkit-flex;
+		    -webkit-justify-content: space-between;
+		    -webkit-align-items: center;
 		    display: flex;
-		    padding: 10px;
-		}
-		.header .header-container {
-			width: 100%;
-		    display: flex;
-		    flex-direction: row;
+		    justify-content: space-between;
 		    align-items: center;
-		}
+			}
 
-		.header .img-responsive {
-		    display: block;
-		    max-width: 100%;
-		    height: 72px;
-		    max-height: 150px;
-		}
-		/*.header-call {*/
-		/*margin-right: 40px;*/
-		/*margin-top: 12px;*/
-		/*font-size: 1.7em;*/
-		/*text-align: right;*/
-		/*}*/
-		.header-call a {
-		    color:white;
-		    text-decoration:none;
-		}
-		.header-call {
-		    font-size: 16px;
-		}
+			.header .logo .img-responsive {
+			    display: block;
+			    max-width: 100%;
+			    height: 47px;
+			    max-height: 150px;
+			}
+			
+			.header-call {
+			    font-size: 13px;
+			    font-family: PT Sans,sans-serif;
+			    letter-spacing: 1px;
+			}
 
-		@media screen and (min-width: 752px) {
+			.header-call a {
+			    color: white;
+			    text-decoration: none;
+			    font-family: PT Sans,sans-serif;
+			    font-size: 16px;
+			}
 
-		    .header-call {
-		        font-size: 1.2em;
-		    }
+			@media screen and (min-width: 768px) {
 
-		}
+					.header {
+							padding: 10px 45px 5px;
+					}
 
-		@media screen and (min-width: 1200px) {
+					.header .logo .img-responsive {
+					    height: 68px;
+					}
 
-		    .header-call {
-		        font-size: 1.7em;
-		    }
+			    .header-call {
+			        font-size: 28px;
+			        font-family: PT Sans Narrow,sans-serif;
+			    }
 
-		}
+			    .header-call a {
+					    color: white;
+					    text-decoration: none;
+					    font-size: inherit;
+					}
+
+			}
     ` ]
 })
 export class BassetHeaderComponent implements OnInit {
