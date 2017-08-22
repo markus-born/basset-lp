@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'block-centered-text',
@@ -8,15 +8,8 @@ import { Component, OnInit } from '@angular/core';
 	    <div class="flex">
 
 	        <div class="col-sm-12 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1 text-box">
-	            <h1>Invest in a fixed-rate pensioner bond that fits your finances and your lifestyle
-	            </h1>
-	            <h2>
-	                Choose to have interest paid every month at the rate of 4.24% per annum, or wait until the end of each year and get an even higher rate of 4.32%. It’s your decision.
-	            </h2>
-	            <h2>
-	                Investing with Basset & Gold is easy. We do all the hard work for you. And because we make sure all our bonds are asset-backed to give you, and us, added security, we have a 100% track record on full repayments.
-
-	            </h2>
+	            <h1>{{title}}</h1>
+	            <h2 *ngFor="let desc of descriptions">{{desc}}</h2>
 	            <div class="row action-btn">
 	                <basset-yellow-btn [title]="'Find out more'"></basset-yellow-btn>
 	            </div>
@@ -65,6 +58,8 @@ import { Component, OnInit } from '@angular/core';
   ` ]
 })
 export class BlockCenteredTextComponent implements OnInit {
+	@Input() title:string;
+	@Input() descriptions:any;
 
   constructor() { }
 

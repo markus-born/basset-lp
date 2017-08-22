@@ -17,7 +17,7 @@ import {
           >
               <div class="row" >
                   <div class="testimonial-wrapper col-xs-12 col-md-8 col-lg-8">
-                      {{ Testimonial }}
+                      "{{ Testimonial }}"
                   </div>
               </div>
 
