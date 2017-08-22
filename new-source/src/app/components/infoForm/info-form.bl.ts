@@ -47,10 +47,10 @@ export class InfoFormBl {
 
     });
 
-    this.form.valueChanges
-      .subscribe(data => this.onValueChanged(data));
+    // this.form.valueChanges
+    //   .subscribe(data => this.onValueChanged(data));
 
-    this.onValueChanged();
+    // this.onValueChanged();
 
     phoneField.valueChanges
       .filter(val => {
@@ -71,7 +71,7 @@ export class InfoFormBl {
           phoneField.setErrors({ validPhone: true });
         }
 
-        this.onValueChanged();
+        // this.onValueChanged();
 
       });
 
@@ -94,7 +94,7 @@ export class InfoFormBl {
           emailField.setErrors({ validEmail: true });
         }
 
-        this.onValueChanged();
+        // this.onValueChanged();
 
       });
 
