@@ -3,12 +3,9 @@ import {
     OnInit,
     Input}                    from '@angular/core';
 import {
-    FormGroup,
-    FormBuilder
+    FormGroup
 }                             from '@angular/forms';
 import { DomSanitizer }       from '@angular/platform-browser';
-
-import { InfoFormService }    from './info-form.service';
 import { InfoFormBl }         from './info-form.bl';
 
 
@@ -16,11 +13,11 @@ import { InfoFormBl }         from './info-form.bl';
     selector: 'info-form',
     template: `
       <div class="sticky-container">
-        <div class="container">
+        <div class="pull-right">
           <div class="row">
-            <div class="col-md-12 col-lg-5 col-lg-offset-7">
+            <div class="col-sm-5 col-lg-5 hidden-xs">
               <div class="info-form">
-                <form [formGroup]="form" novalidate>
+                <form [formGroup]="form" (ngSubmit)="submitForm(form.value)">
                     <h2 class="text-center">{{formTitle}}</h2>
                     <hr>
                     <p class="slider-text text-center">{{ sliderText }}</p>
@@ -55,22 +52,39 @@ import { InfoFormBl }         from './info-form.bl';
                                 <input class="form-control" placeholder="Last Name" formControlName="last">
                             </div>
                         </div>
+                        <div class="row" *ngIf="formErrors['first'] || formErrors['last']">
+                          <div class="alert alert-danger" *ngIf="formErrors['first']">
+                            {{ formErrors['first'] }}
+                          </div>
+                          <div class="alert alert-danger" *ngIf="!formErrors['first'] && formErrors['last']">
+                            {{ formErrors['last'] }}
+                          </div>
+                        </div>
 
 
                     </div>
                     <div class="form-group">
                         <input class="form-control" placeholder="Phone" formControlName="phone">
+                        <div class="alert alert-danger" *ngIf="formErrors['phone']">
+                            {{ formErrors['phone'] }}
+                        </div>
                     </div>
                     <div class="form-group">
                         <input class="form-control" placeholder="Email" formControlName="email">
+                        <div class="alert alert-danger" *ngIf="formErrors['email']">
+                            {{ formErrors['email'] }}
+                        </div>
                     </div>
 
                     <div class="checkbox">
                         <p-checkbox binary="true" class="checkbox-mark" [formControlName]="'terms'"></p-checkbox>
                         <span [innerHTML]="terms"></span>
+                        <div class="alert alert-danger" *ngIf="formErrors['terms']">
+                            {{ formErrors['terms'] }}
+                        </div>
                     </div>
                     <div class="submit">
-                        <button (click)="onSubmit()" type="button" class="submit-text">{{ submitText }}</button>
+                        <button type="submit" class="submit-text">{{ submitText }}</button>
                     </div>
                   </form>
               </div>
@@ -84,7 +98,7 @@ import { InfoFormBl }         from './info-form.bl';
           color:#adadad;
           background: white;
       }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 451px) {
 
         :host {
             position: absolute;
@@ -93,6 +107,9 @@ import { InfoFormBl }         from './info-form.bl';
             width: 100%;
             height:0;
             /*pointer-events: none;*/
+        }
+        .sticky-container > div {
+            margin-right: 25px;
         }
       }
       .checkbox {
@@ -181,7 +198,7 @@ import { InfoFormBl }         from './info-form.bl';
           cursor: pointer;
 
       }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 451px) {
 
           .info-form {
               width:300px;
@@ -206,9 +223,7 @@ export class InfoFormComponent implements OnInit {
   terms;
 
 
-  constructor(private formBuilder: FormBuilder,
-              private formService: InfoFormService,
-              private formBl: InfoFormBl,
+  constructor(private formBl: InfoFormBl,
               private sanitizer: DomSanitizer
   ) {
     this.terms = sanitizer.bypassSecurityTrustHtml(this.termsDirty);
@@ -230,13 +245,17 @@ export class InfoFormComponent implements OnInit {
     return this.formBl.MaxAmount;
   }
 
+  get formErrors() {
+    return this.formBl.formErrors;
+  }
+
   onUpdate(event) {
     // console.log(event)
     this.formBl.onUpdate(event);
   }
 
-  onSubmit() {
-    this.formBl.onSubmit();
+  submitForm(value: any) {
+    this.formBl.onSubmit(value);
   }
 
 

@@ -6,6 +6,8 @@ import {
   ReactiveFormsModule}                        from '@angular/forms';
 import { BrowserAnimationsModule }            from '@angular/platform-browser/animations';
 
+import { ModalModule }                        from 'ngx-modal';
+
 import { BassetHeaderComponent }              from '../components/header/header.component';
 import { BgFooterComponent }                  from '../components/footer/footer.component';
 import { YellowBtnComponent }                 from '../components/yellow-btn/yellow-btn.component';
@@ -13,7 +15,9 @@ import { YellowBtnComponent }                 from '../components/yellow-btn/yel
 import { BlockTestimonialComponent }          from '../components/block-testimonial/block-testimonial.component';
 import { BlockCenteredTextComponent }         from '../components/block-centered-text/block-centered-text.component';
 
-import { BlockBulletsComponent }          from '../components/block-bullets/block-bullets.component';
+import { BlockBulletsComponent }              from '../components/block-bullets/block-bullets.component';
+
+import { JoinModalComponent }                 from '../components/join-modal/join-modal.component';
 
 import { TelephonifyPipe }         from './telephonify.pipe';
 
@@ -23,18 +27,23 @@ const importExportDeclarationArray = [
   YellowBtnComponent,
   BlockTestimonialComponent,
   BlockCenteredTextComponent,
-  BlockBulletsComponent
+  BlockBulletsComponent,
+  JoinModalComponent
 ];
 
 @NgModule({
   imports:      [
     CommonModule,
     // ViewportModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ModalModule
   ],
   declarations: [ 
     ...importExportDeclarationArray,
     TelephonifyPipe
+  ],
+  entryComponents: [
+    JoinModalComponent
   ],
   exports:      [ ...importExportDeclarationArray,
     TelephonifyPipe,

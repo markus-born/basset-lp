@@ -8,7 +8,6 @@ import { BrowserModule }     from '@angular/platform-browser';
 import { HttpModule }        from '@angular/http';
 import { CommonModule }      from '@angular/common';
 
-
 @NgModule({
   imports:      [ CommonModule, BrowserModule, HttpModule ],
   declarations: [  ],

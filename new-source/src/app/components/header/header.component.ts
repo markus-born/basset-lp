@@ -4,11 +4,13 @@ import { Component, OnInit, Input } from '@angular/core';
     selector: 'bg-header',
     template: `
     	<div class="header">
-		    <div class="container">
-		        <div class="col-xs-6  col-sm-3 col-lg-2 text-center">
+		    <div class="header-container">
+		        <div class="logo col-xs-4">
+		        	<a href="#">
 		            <img src="assets/logo-negative.png" class="img-responsive">
+		            </a>
 		        </div>
-		        <div class="col-xs-6 col-sm-6 col-sm-offset-3 col-lg-10 col-lg-offset-0 text-right">
+		        <div class="phone-number col-xs-8 text-right">
 		            <div class="header-call">{{ ctaText }}
 		                <a class="no-wrap" [href]="phoneNumber | telephonify">{{ phoneNumber }}</a>
 		            </div>
@@ -29,7 +31,8 @@ import { Component, OnInit, Input } from '@angular/core';
 		    display: flex;
 		    padding: 10px;
 		}
-		.header .container {
+		.header .header-container {
+			width: 100%;
 		    display: flex;
 		    flex-direction: row;
 		    align-items: center;
@@ -38,7 +41,7 @@ import { Component, OnInit, Input } from '@angular/core';
 		.header .img-responsive {
 		    display: block;
 		    max-width: 100%;
-		    height: auto;
+		    height: 72px;
 		    max-height: 150px;
 		}
 		/*.header-call {*/
@@ -52,10 +55,18 @@ import { Component, OnInit, Input } from '@angular/core';
 		    text-decoration:none;
 		}
 		.header-call {
-		    font-size: 14px;
+		    font-size: 16px;
 		}
 
-		@media screen and (min-width: 768px) {
+		@media screen and (min-width: 752px) {
+
+		    .header-call {
+		        font-size: 1.2em;
+		    }
+
+		}
+
+		@media screen and (min-width: 1200px) {
 
 		    .header-call {
 		        font-size: 1.7em;

@@ -20,11 +20,14 @@ export class InfoFormService {
     }
 
     validatePhone(phone) {
-
       console.log(phone)
-
       return this.http.get(`${this.config.apiEndpoint}/${this.VALIDATE_PHONE_URL}${phone}`)
 
+    }
+
+    validateEmail(email) {
+      console.log(email)
+      return this.http.get(`${this.config.apiEndpoint}/${this.VALIDATE_EMAIL_URL}${email}`)
     }
 
 }

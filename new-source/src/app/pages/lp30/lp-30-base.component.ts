@@ -23,8 +23,7 @@ import { AppConfig } from '../../interfaces/app.interface';
 				{title: '', content:'100% record on full repayments, with interest!'},
 				{title: '', content:'Easy, online application. No fees, no fuss.'},
 				{title: '', content:'One-year bonds, extendable up to five years'}
-		    ]"
-			[showMore]="false">
+		    ]">
 		</block-bullets>
 
 		<block-testimonial
@@ -47,8 +46,7 @@ import { AppConfig } from '../../interfaces/app.interface';
 		    	{title: '100% track records', content:'All payments, with full interest, have been made to every single customer. And we have a lot of them!'},
 				{title: 'Asset-backed security', content:'Loans are backed by assets such as property, corporate debentures and other forms of security to protect our investments and your capital.'},
 				{title: 'Investments to suit you!', content:'We have a wide range of products, including cash bonds, fixed monthly income, high-yield and pensioner bonds. We’ve even got an ISA!'}
-		    ]"
-			[showMore]="false">
+		    ]">
 		</block-bullets>
 
 		<block-testimonial

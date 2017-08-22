@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.modal-open basset-yellow-btn .modal {
+	min-width: 300px;
+	display: block;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    backface-visibility: hidden;
+    overflow: visible;
+}
+.modal-open basset-yellow-btn .modal .modal-dialog {
+	left: -50%;
+	transform: translateY(-50%);
+}
+
+.modal-open basset-yellow-btn .modal .modal-dialog {
+	width: auto;
+}
+
+.modal-open basset-yellow-btn .modal .modal-dialog .modal-content {
+	max-width: 300px;
+}

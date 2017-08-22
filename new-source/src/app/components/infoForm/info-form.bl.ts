@@ -53,8 +53,9 @@ export class InfoFormBl {
 
     phoneField.valueChanges
       .filter(val => {
-        let cleanPhone = val.replace(/[^0-9]/g,'');
-        return cleanPhone.length >= 11
+        // let cleanPhone = val.replace(/[^0-9]/g,'');
+        // return cleanPhone.length >= 1
+        return val.length >= 1;
       })
       .debounceTime(500)
       .switchMap(val => this.formService.validatePhone(val))
@@ -109,20 +110,21 @@ export class InfoFormBl {
 
   validationMessages = {
     'first': {
-      'required':      'Name is required.',
-      'minlength':     'Name must be at least 4 characters long.',
-      'maxlength':     'Name cannot be more than 24 characters long.',
+      'required':      'First name is required.',
+      'minlength':     'First name must be at least 4 characters long.',
+      'maxlength':     'First name cannot be more than 24 characters long.',
       'forbiddenName': 'Someone named "Bob" cannot be a hero.'
     },
     'last': {
-      'required': 'last is required.'
+      'required': 'Last name is required.'
     },
     'email': {
-      'required': 'email is required.'
+      'required': 'email is required.',
+      'validEmail': 'Email address is invalid'
     },
     'phone': {
       'required'  : 'phone is required.',
-      'validPhone': 'number is invalid'
+      'validPhone': 'Phone number is invalid'
     },
     'terms': {
       'required': 'terms is required.'
@@ -148,7 +150,7 @@ export class InfoFormBl {
     this.CurrentAmount = event
   }
 
-  onSubmit() {
+  onSubmit(value) {
     const form = this.form;
     console.log(form);
   }

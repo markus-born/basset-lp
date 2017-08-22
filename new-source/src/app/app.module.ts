@@ -1,5 +1,6 @@
 import { NgModule }                   from '@angular/core';
 import { BrowserAnimationsModule }    from '@angular/platform-browser/animations';
+// import { ModalModule }                from 'ngx-modal';
 
 import { AppComponent }               from './app.component';
 import { AppRoutingModule }           from './app-routing.module';
@@ -18,7 +19,7 @@ import { APP_CONFIG, BASSET_CONFIG }  from './config/app.config';
   imports: [
     CoreModule.forRoot(),
     AppRoutingModule,
-    Lp30BaseModule,
+    Lp30BaseModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: BASSET_CONFIG }

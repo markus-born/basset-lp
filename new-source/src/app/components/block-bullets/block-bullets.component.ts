@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 	    <div class="flex">
 
-	        <div class="col-sm-12 col-md-7 col-lg-7 text-box">
+	        <div [class]="type">
 	            <h1>{{ title }}</h1>
 	            <h2 *ngIf="brief">{{ brief }}</h2>
 	            <ul>
@@ -16,7 +16,7 @@ import { Component, OnInit, Input } from '@angular/core';
 	            		{{ element.content }}
 	            	</li>
 	            </ul>
-	            <div class="row action-btn" [hidden]="!showMore">
+	            <div class="row action-btn">
 	                <basset-yellow-btn [title]="'Find out more'"></basset-yellow-btn>
 	            </div>
 
@@ -81,7 +81,6 @@ export class BlockBulletsComponent implements OnInit {
 	@Input('title') title: string;
 	@Input('brief') brief: string;
 	@Input('type') type: string;
-	@Input('showMore') showMore: boolean;
 	@Input('description') description: Array<{title: string, content: string}>;
 	constructor() { }
 
