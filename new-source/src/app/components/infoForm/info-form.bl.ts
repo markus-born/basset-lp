@@ -1,4 +1,4 @@
-import { Injectable }       from '@angular/core';
+﻿import { Injectable }       from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -175,8 +175,21 @@ export class InfoFormBl {
   }
 
   onSubmit(value) {
-    const form = this.form;
-    console.log(form);
+      const form = this.form;
+
+      for (const field in this.formErrors) {
+          // clear previous error message (if any)
+          this.formErrors[field] = '';
+          const control = form.get(field);
+
+          if (control && !control.valid) {
+              const messages = this.validationMessages[field];
+              for (const key in control.errors) {
+                  this.formErrors[field] += messages[key] + ' ';
+              }
+          }
+      }
+
   }
 
 }
