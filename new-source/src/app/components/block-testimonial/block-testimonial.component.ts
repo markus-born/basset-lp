@@ -12,7 +12,7 @@ import {
   template: `
     <div class="parralax-box"
        [ngStyle]="{'background-image': BackgroundImg}">
-      <div class="container">
+      <div class="container w-1000">
           <div class="testimonial"
           >
               <div class="row" >
@@ -33,7 +33,7 @@ import {
 
         /* Create the parallax scrolling effect */
         /*background-attachment: fixed;*/
-        background-position: top center;
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
 
@@ -43,15 +43,24 @@ import {
     .testimonial-wrapper {
         background: rgba(49, 39, 52, 0.45);
         color: white;
-        font-size: 1.3em;
+        font-size: 1.5em;
         font-weight: 200;
         font-style: italic;
-        padding: 40px;
-        bottom: 60px;
-        width: 90%;
-        max-width: 640px;
+        padding: 20px 40px 40px 100px;
+        bottom: 80px;
+        width: 570px;
         position: absolute;
         left: 0;
+        font-family: MuliLight;
+    }
+    @media screen and (max-width: 767px) {
+      .testimonial-wrapper {
+        width: -webkit-calc(100vw - 25px);
+        width: calc(100vw - 25px);
+        font-size: 1em;
+        padding: 15px;
+        bottom: 30px;
+      }
     }
   ` ]
 })

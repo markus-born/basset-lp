@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'bg-footer',
     template: `
         <div class="basset-footer">
-            <div class="container max1024">
+            <div class="container w-1000">
                 <div class="ui-g risk-box">
                     <div class="risk-warning col-md-9">
                         <h2>{{ riskTitle }}</h2>
@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
                 </div>
 
             </div>
-            <div class="container">
+            <div class="container w-1000">
                 <div class="footer-wide">
                     <p>{{ footerTxt1 }}</p>
                     <p>{{ footerTxt2 }}</p>
@@ -24,7 +24,10 @@ import { Component, OnInit } from '@angular/core';
     `,
     styles: [ `
         .basset-footer {
-            margin:50px 0;
+            margin: 30px 0;
+            font-family: MuliRegular;
+            font-size: 1.9em;
+            line-height: 1.1;
         }
         :host {
             color: #707070;
@@ -38,24 +41,27 @@ import { Component, OnInit } from '@angular/core';
         .risk-warning {
             font-size: 0.8em;
             border: 1px solid #000;
-            margin-bottom: 20px;
             padding: 10px 30px;
         }
         .risk-warning h2 {
             font-weight: 100;
             margin: 0;
-            font-size: 1.5em;
-            font-family: PT Sans Narrow,sans-serif;
+            font-size: 1.1em;
         }
         .risk-box p {
             margin: 0;
         }
 
         .footer-wide p {
-            font-family: PT Sans,sans-serif;
             font-size: 0.8em;
             text-align: center;
             margin-top:20px;
+        }
+        @media screen and (max-width: 767px) {
+            .basset-footer {
+                margin: 10px 0;
+                font-size: 1.3em;
+            }
         }
     ` ]
 })
