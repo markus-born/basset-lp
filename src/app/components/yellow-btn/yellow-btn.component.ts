@@ -67,6 +67,11 @@ import { Component, OnInit, Input } from '@angular/core';
 		    flex-grow: 10;
 		    cursor: pointer;
 		}
+    @media screen and (max-width: 767px) {
+      .basset-yellow-btn {
+        width: 100%;
+      }
+    }
     ` ]
 })
 export class YellowBtnComponent implements OnInit {

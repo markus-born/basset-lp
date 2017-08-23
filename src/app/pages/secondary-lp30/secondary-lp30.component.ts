@@ -79,7 +79,7 @@ export class SecondaryLP30Component implements OnInit {
             isCentered: false
         },
         {
-            title: 'Power-charge your portfolio 30.9% return over 4 years',
+            title: 'Power-charge your portfolio <br class="hidden-xs">30.9% return over 4 years',
             descriptions: [
                 'Our high-yield compounding bond is ideal for smart investors looking for a reliable, fixed-rate return over a short-to-medium investment period.',
                 'The minimum investment is jut £1,000 and applying is fast and simple. But you’ll need to hurry. Our application window closes soon.'

@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: MuliRegular;
+    src: url(./assets/fonts/muli/Muli-Regular.ttf);
+}
+@font-face {
+    font-family: MuliLight;
+    src: url(./assets/fonts/muli/Muli-Light.ttf);
+}
+@font-face {
+    font-family: MuliBold;
+    src: url(./assets/fonts/muli/Muli-Bold.ttf);
+}
 * {
   outline: none !important;
 }
@@ -23,4 +35,8 @@
 
 .modal-open basset-yellow-btn .modal .modal-dialog .modal-content {
 	max-width: 300px;
+}
+
+.w-1000 {
+    max-width: 1000px;
 }

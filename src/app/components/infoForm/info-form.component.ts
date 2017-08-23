@@ -12,10 +12,10 @@ import { InfoFormBl }         from './info-form.bl';
 @Component({
     selector: 'info-form',
     template: `
-      <div class="sticky-container container">
+      <div class="sticky-container container w-1000">
         <div class="pull-right">
           <div class="row">
-            <div class="col-sm-5 col-lg-5 hidden-xs">
+            <div class="col-sm-5 col-md-4 hidden-xs">
               <div class="info-form">
                 <form [formGroup]="form" (ngSubmit)="submitForm(form.value)">
                     <h2 class="text-center">{{formTitle}}</h2>
@@ -264,8 +264,9 @@ import { InfoFormBl }         from './info-form.bl';
 
           .info-form {
               width:270px;
-              margin-top: 0;
+              margin-top: -10px;
               margin-left: auto;
+              margin-right: 15px;
           }
 
       }
